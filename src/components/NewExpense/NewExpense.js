@@ -5,7 +5,7 @@ import ExpenseForm from './ExpenseForm'
 function NewExpense({onAddExpense}){
     const [isEditing, setIsEditing] = useState(false)
 
-    
+
     const saveExpenseDataHandler = (enteredExpenseData) =>{
         const expenseData = {
             ...enteredExpenseData,
@@ -14,8 +14,12 @@ function NewExpense({onAddExpense}){
         onAddExpense(expenseData)
     }
 
+    const startEditingHandler = () => {
+        setIsEditing(true)
+    }
+
     return <div className="new-expense">
-        <button>Add new Expense</button>
+        <button onClick={startEditingHandler}>Add new Expense</button>
         <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
     </div>
 }
