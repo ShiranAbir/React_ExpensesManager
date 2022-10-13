@@ -19,8 +19,8 @@ function NewExpense({onAddExpense}){
     }
 
     return <div className="new-expense">
-        <button onClick={startEditingHandler}>Add new Expense</button>
-        <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
+        {!isEditing && <button onClick={startEditingHandler}>Add new Expense</button>}
+        {isEditing && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>}
     </div>
 }
 
